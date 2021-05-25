@@ -4,3 +4,4 @@ all:main.o search.o search.h
     gcc -c search.c -o search.o
 clean:
     rm -f main.o search.o
+    
