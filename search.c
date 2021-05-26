@@ -1,5 +1,5 @@
 #include "search.h"
-#define MAXHASH 1024
+#define MAXHASH 1024000
 void gainData(int data[],int search[], int n, int m){
     int i;
     srand(1);
@@ -44,9 +44,9 @@ void FindBstNode(nP root, int i){
     while(root){
         if(root->data == i)
             break;
-        else if(root->data < i && root->left)
+        else if(root->data > i && root->left)
             root = root->left;
-        else if(root->data > i && root->right)
+        else if(root->data < i && root->right)
             root = root->right;
         else
             break;
@@ -131,6 +131,7 @@ void buildLl(int n, int m){
     nP listPtr = head;
     gettimeofday(&begin,NULL);
     for(i = 0 ; i <= m ; i++){
+        listPtr = head;
         while(listPtr){
             if(listPtr->data == search[i])
                 break;
